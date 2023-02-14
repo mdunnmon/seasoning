@@ -1,6 +1,6 @@
 export const getRecipes = () => {
   return [
-    { id: 1, name: 'Mushy Peas' },
+    { id: 1, name: 'Mushy Peas', servings: 4, time: '30 minutes' },
     { id: 2, name: 'Spaghetti' },
     { id: 3, name: 'Lasagna' },
     { id: 4, name: 'Mashed Potatoes' },

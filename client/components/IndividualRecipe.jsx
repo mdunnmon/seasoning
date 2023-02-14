@@ -21,6 +21,8 @@ const IndividualRecipe = () => {
       <div>
         <h4>{recipe.name}</h4>
         <p>ID: {recipe.id}</p>
+        <p>Servings: {recipe.servings}</p>
+        <p>Time: {recipe.time}</p>
       </div>
     );
   };
