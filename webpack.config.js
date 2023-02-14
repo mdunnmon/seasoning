@@ -43,9 +43,12 @@ module.exports = {
   },
 
   devServer: {
+    headers: { 'Access-Control-Allow-Origin': '*' },
+
     proxy: {
-      '/api': {
+      '/api/**': {
         target: 'http://localhost:3000',
+        secure: false,
       },
     },
   },

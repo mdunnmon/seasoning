@@ -4,17 +4,17 @@ import Recipe from './Recipe.jsx';
 import { Link, Route, Routes } from 'react-router-dom';
 
 const RecipeList = () => {
-  // const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   
-  // useEffect(() => {
-  //   fetch('/home')
-  //     .then(res => res.json())
-  //     .then(recipes => {
-  //       setRecipes(recipes);
-  //     });
-  // }, []);
-
-  const recipes = getRecipes();
+  useEffect(() => {
+    fetch('/api/recipeList')
+    .then(res => res.json())
+    .then(recipes => {
+      setRecipes(recipes);
+    }).catch(console.error);
+  }, []);
+  console.log(recipes)
+  // const recipes = getRecipes();
   
   return (
     <ul>
