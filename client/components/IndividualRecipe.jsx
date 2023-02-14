@@ -26,4 +26,4 @@ const IndividualRecipe = () => {
   };
 
   export default IndividualRecipe;
-  //hi
+  
