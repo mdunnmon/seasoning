@@ -1,4 +1,5 @@
 const Recipe = require('../models/recipeModel');
+const { ObjectId } = require('mongoose');
 
 const recipeController = {};
 
@@ -25,6 +26,19 @@ recipeController.createRecipe = (req, res, next) => {
     res.locals.newRecipe = response;
     return next();
   });
+};
+
+recipeController.deleteRecipe = (req, res, next) => {
+  console.log('XXXXXXXXX', req.body);
+  Recipe.findOneAndRemove({ _id: req.body._id })
+    .then((response) => {
+      console.log(response);
+      res.send(response.name + ' deleted');
+    })
+    .catch((err) => {
+      console.error('Error deleting recipe:', err);
+      next(err);
+    });
 };
 
 module.exports = recipeController;
