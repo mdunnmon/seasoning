@@ -1,7 +1,8 @@
+// import { getRecipes } from '../mockApi';
 import React, {useState, useEffect} from 'react'
-import { getRecipes } from '../mockApi';
-import Recipe from './Recipe.jsx';
 import { Link, Route, Routes } from 'react-router-dom';
+import IndividualRecipe from './IndividualRecipe.jsx';
+import Recipe from './Recipe.jsx';
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -11,25 +12,25 @@ const RecipeList = () => {
     .then(res => res.json())
     .then(recipes => {
       setRecipes(recipes);
+      console.log("recipeList recipes", recipes)
     }).catch(console.error);
   }, []);
-  console.log(recipes)
   // const recipes = getRecipes();
   
   return (
+    <div>
     <ul>
-        {recipes.map(recipe => (
-          <li key={recipe.id}>
-            <Recipe
-              name={recipe.name}
-              id={recipe.id}
-              />
-              <Link to={`/recipe/${recipe.id}`}>View Recipe</Link>
-              </li>
+        {recipes.map((recipe) => (
+          <li key={recipe._id}>
+            <Recipe name={recipe.name} id={recipe._id} recipes={recipes}/>
+            </li>    
         ))}
-    </ul>
+        </ul>
+        <Routes>
+          <Route path="/recipe/:key" element={<IndividualRecipe recipes={recipes}/>} />
+        </Routes>
+    </div>
   );
 };
 
 export default RecipeList;
-//hi

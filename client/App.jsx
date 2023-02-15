@@ -13,9 +13,9 @@ const App = () => {
       <>
       <nav>
         <ul>
-          <li><Link to='/' element={<Home />}>Home</Link></li>
-          <li><Link to='/create' element={<Create />}>Create</Link></li>
-          <li><Link to='/recipe' element={<RecipeList />}>Recipes List</Link></li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/create'>Create</Link></li>
+          <li><Link to='/recipe'>Recipes List</Link></li>
         </ul>
       </nav>
       <Routes>

@@ -32,7 +32,6 @@ const Create = () => {
       <div>
         <label>Recipe Name:<input type='text'/></label>
         <label>Time:<input type='text'/></label>
-        <label>Difficulty:<input type='text'/></label>
         <label>Ingredients:<input type='text'/></label>
         <label>Directions:<input type='text'/></label>
         <button className='createRecipe' type='submit'>Add Recipe</button>
