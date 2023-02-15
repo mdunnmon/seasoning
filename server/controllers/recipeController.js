@@ -28,8 +28,21 @@ recipeController.createRecipe = (req, res, next) => {
   });
 };
 
+//edit recipe middleware
+recipeController.editRecipe = (req, res, next) => {
+  console.log(req.body);
+  Recipe.findOneAndUpdate({ _id: req.body._id }, { $set: req.body })
+    .then((response) => {
+      console.log(response);
+      res.json('updated');
+    })
+    .catch((err) => {
+      console.error('Error updating recipe:', err);
+      next(err);
+    });
+};
+
 recipeController.deleteRecipe = (req, res, next) => {
-  console.log('XXXXXXXXX', req.body);
   Recipe.findOneAndRemove({ _id: req.body._id })
     .then((response) => {
       console.log(response);
