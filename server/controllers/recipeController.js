@@ -33,7 +33,7 @@ recipeController.deleteRecipe = (req, res, next) => {
   Recipe.findOneAndRemove({ _id: req.body._id })
     .then((response) => {
       console.log(response);
-      res.send(response.name + ' deleted');
+      res.json(' deleted');
     })
     .catch((err) => {
       console.error('Error deleting recipe:', err);
