@@ -44,7 +44,7 @@ module.exports = {
 
   devServer: {
     headers: { 'Access-Control-Allow-Origin': '*' },
-
+    historyApiFallback: true,
     proxy: {
       '/api/**': {
         target: 'http://localhost:3000',
