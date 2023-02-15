@@ -14,13 +14,13 @@ const IndividualRecipe = () => {
   //     return <div>Loading recipe...</div>;
   //   }
   const location = useLocation();
-  console.log("location", location)
+  // console.log("location", location)
   const recipeId = location.pathname.split('/').pop();
-  console.log('recipeID', recipeId)
+  // console.log('recipeID', recipeId)
   const recipes = location.state.recipes;
-  console.log('recipes', recipes)
+  // console.log('recipes', recipes)
   const recipe = recipes.find(recipe => recipe._id === recipeId);
-  console.log('recipe', recipe)
+  // console.log('recipe', recipe)
 
   if (!recipe) {
     return <div>Loading recipe...</div>;

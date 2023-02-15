@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './components/Home.jsx';
-import Recipe from './components/Recipe.jsx';
 import Create from './components/Create.jsx';
 import Edit from './components/Edit.jsx';
 import RecipeList from './components/RecipeList.jsx';
@@ -31,4 +30,8 @@ const App = () => {
 
 export default App;
 
-//hi
+/*main App component in react. has a navbar with an unordered list at the top with links to certain paths.
+used links to create hyperlinks to other routes in the app 
+utilized react router to create several route components with paths and elements set as components
+
+*/

@@ -1,17 +1,13 @@
 const mongoose = require('mongoose');
 //create schema
 const Schema = mongoose.Schema;
-//create recipe schema
+//create recipe schema with required inputs
 const recipeSchema = new Schema({
   name: {
     type: String,
     required: true,
   },
   time: {
-    type: String,
-    required: true,
-  },
-  difficulty: {
     type: String,
     required: true,
   },

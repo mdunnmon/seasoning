@@ -12,16 +12,20 @@ app.use(express.urlencoded({ extended: true }));
 
 //connecting to database function
 const database = (module.exports = () => {
+  //parameters for connecting to database
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
+  //try to connect to database with the associated URI, and the connectionParams which we have declared
   try {
     mongoose.connect(
       'mongodb+srv://mdunnmon:seasoning789@recipestorage.n4vrfhq.mongodb.net/?retryWrites=true&w=majority',
       connectionParams
     );
+    //log if connection is successful
     console.log('Successfully connected to database');
+    //catch block if there is an error
   } catch (error) {
     console.log(error);
     console.log('Failed to connect to database');
@@ -30,16 +34,12 @@ const database = (module.exports = () => {
 //calling database
 database();
 
-//define route handlers
+//define route handlers. when routes use a /api then it gets sent to the recipeRouter
 app.use('/api', recipeRouter);
 
-// app.get('/api', (req, res) => {
-//   res.send('Hello from express!');
-// });
-
-// app.get('*', function (request, response) {
-//   response.sendFile(__dirname + 'client/index.html');
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'path', 'to', 'index.html'));
+});
 
 //catch all route handler
 app.use((req, res) => res.status(404).send('This page does not exist'));
