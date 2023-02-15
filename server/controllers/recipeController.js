@@ -28,9 +28,11 @@ recipeController.createRecipe = (req, res, next) => {
   });
 };
 
-//edit recipe middleware
+//edit recipe middleware which handles our put request
 recipeController.editRecipe = (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
+  //calls findoneandupdate on recipe model and has two arguments. query object, and the update object.
+  //if query object found uses $set to replace all fields with the new data from our req.body
   Recipe.findOneAndUpdate({ _id: req.body._id }, { $set: req.body })
     .then((response) => {
       console.log(response);
@@ -43,6 +45,7 @@ recipeController.editRecipe = (req, res, next) => {
 };
 
 recipeController.deleteRecipe = (req, res, next) => {
+  //within our recipe it finds one and removes searching for the _id which is equal to our req.body._id
   Recipe.findOneAndRemove({ _id: req.body._id })
     .then((response) => {
       console.log(response);

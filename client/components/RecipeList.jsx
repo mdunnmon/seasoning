@@ -6,7 +6,8 @@ import Recipe from './Recipe.jsx';
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
-  
+  //use useEffect hook which fetches our recipeList upon rendering
+  //once response is given then we set the state of our recipes to the returned recipes
   useEffect(() => {
     fetch('/api/recipeList')
     .then(res => res.json())
@@ -15,8 +16,12 @@ const RecipeList = () => {
       console.log("recipeList recipes", recipes)
     }).catch(console.error);
   }, []);
-  // const recipes = getRecipes();
   
+
+  //renders an unordered list of recipes from our recipeList. for each recipe in array a new list item is created with a unique key
+  //A recipe component is rendered passing in the recipe name, id, and all recipes array as properties
+  //Routes component used to define a route that starts with /recipe/ and the :key is a dynamic part which corresponds with the specific recipe key
+  //if the route matches then the element of individual recipe is rendered and passes the recipes array as a prop
   return (
     <div>
     <ul>

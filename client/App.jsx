@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './components/Home.jsx';
 import Create from './components/Create.jsx';
-import Edit from './components/Edit.jsx';
 import RecipeList from './components/RecipeList.jsx';
 import IndividualRecipe from './components/IndividualRecipe.jsx';
 import NotFound from './components/NotFound.jsx';

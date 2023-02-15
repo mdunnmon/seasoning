@@ -7,4 +7,3 @@ const NotFound = () => {
 }
 
 export default NotFound
-//hi

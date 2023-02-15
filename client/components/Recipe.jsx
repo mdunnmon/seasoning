@@ -5,6 +5,7 @@ const Recipe = ({ name, id, recipes }) => {
   // console.log("key", id);
   // console.log("name", name);
   // console.log("recipe recipes", recipes)
+  //can use link to pass down state via the useLocation hook
   return (
     <div>
       <h4>{name}</h4>
@@ -14,4 +15,3 @@ const Recipe = ({ name, id, recipes }) => {
 };
 
 export default Recipe
-//hi

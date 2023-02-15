@@ -11,7 +11,9 @@ const IndividualRecipe = () => {
   const location = useLocation();
   // console.log(location);
   const recipeId = location.pathname.split('/').pop();
+  //pull the recipes from location.state
   const recipes = location.state.recipes;
+  //find individual recipe based upon Id given in pathway which corresponds to the object's key
   const recipe = recipes.find(recipe => recipe._id === recipeId);
 
   //create state for editable state when editing page. will flip between true/false if edit button clicked
@@ -35,7 +37,7 @@ const IndividualRecipe = () => {
   //edit recipe function sending put request 
   const editRecipe = () => {
       const updatedRecipe = {...recipe, name, time, ingredients, directions}
-      //makes a post request to /api/create endpoint with the content type headers, and the body of our stringified recipe state
+      //makes a post request to /api/create endpoint with the content type headers, and the body of our stringified updated recipe information
       fetch('/api/edit', {
         method: 'PUT',
         headers: {
