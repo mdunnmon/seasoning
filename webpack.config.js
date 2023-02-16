@@ -31,8 +31,9 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'client'),
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
 
