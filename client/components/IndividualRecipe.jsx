@@ -94,34 +94,57 @@ const IndividualRecipe = () => {
     */
   if (editable) {
     return (
-      <div>
-        <h1>
-          Name:
-          <input value={name} onChange={(e) => setName(e.target.value)} />
-        </h1>
-        <p>
-          Time: <input value={time} onChange={(e) => setTime(e.target.value)} />
-        </p>
-        <h2>
-          Ingredients:{' '}
-          <input
-            value={ingredients}
-            onChange={(e) => setIngredients(e.target.value)}
-          />
-        </h2>
-        <h2>
-          Directions:{' '}
-          <input
-            value={directions}
-            onChange={(e) => setDirections(e.target.value)}
-          />
-        </h2>
-        <button
-          className="bg-gradient-to-r from-emerald-700 to-emerald-600 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
-          onClick={editRecipe}
-        >
-          Save Changes
-        </button>
+      <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
+        <div className="flex flex-col p-6 rounded-lg shadow-lg bg-white w-2/3 m-8">
+          <div className="flex justify-between items-center bg-gradient-to-r from-emerald-900 to-emerald-700 text-white text-lg px-6 py-4 rounded">
+            <h1 className="text-xl font-bold">
+              <input
+                className="bg-emerald-600 border-none text-white rounded"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </h1>
+            <h3>
+              <input
+                className="bg-emerald-600 border-none text-white rounded text-right"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+              />
+            </h3>
+          </div>
+          <div className="m-8 p-4">
+            <p className="p-3">
+              Ingredients:{' '}
+              <input
+                className="w-full bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-emerald-700"
+                value={ingredients}
+                onChange={(e) => setIngredients(e.target.value)}
+              />
+            </p>
+            <p className="p-3">
+              Directions:{' '}
+              <input
+                className="w-full bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-emerald-700"
+                value={directions}
+                onChange={(e) => setDirections(e.target.value)}
+              />
+            </p>
+          </div>
+          <div className="flex justify-between">
+            <button
+              className="bg-red-500 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:bg-red-700 ml-2"
+              onClick={() => setEditable(false)}
+            >
+              Cancel
+            </button>
+            <button
+              className="bg-gradient-to-r from-emerald-700 to-emerald-500 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
+              onClick={editRecipe}
+            >
+              Save Changes
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -133,23 +156,33 @@ const IndividualRecipe = () => {
     */
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>Time: {time}</p>
-      <h2>Ingredients: {ingredients}</h2>
-      <h2>Directions: {directions}</h2>
-      <button
-        className="bg-gradient-to-r from-emerald-700 to-emerald-500 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
-        onClick={handleEditClick}
-      >
-        Edit Recipe
-      </button>
-      <button
-        className="bg-indigo-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:bg-red-900"
-        onClick={deleteRecipe}
-      >
-        Delete Recipe
-      </button>
+    <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
+      <div className="flex flex-col p-6 rounded-lg shadow-lg bg-white w-2/3 m-8">
+        <div className="flex justify-between items-center bg-gradient-to-r from-emerald-900 to-emerald-700 text-white text-lg px-6 py-4 rounded">
+          <h1 className="text-xl font-bold">{name}</h1>
+          <h3>{time}</h3>
+        </div>
+        <div className="m-8 p-4">
+          <h4 className="pl-3 font-semibold">Ingredients:</h4>
+          <p className="pl-3 pb-3">{ingredients}</p>
+          <h4 className="pl-3 font-semibold">Directions:</h4>
+          <p className="pl-3 pb-1">{directions}</p>
+        </div>
+        <div className="flex justify-between">
+          <button
+            className="bg-gradient-to-r from-emerald-700 to-emerald-500 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
+            onClick={handleEditClick}
+          >
+            Edit Recipe
+          </button>
+          <button
+            className="bg-red-500 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:bg-red-700 ml-2"
+            onClick={deleteRecipe}
+          >
+            Delete Recipe
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

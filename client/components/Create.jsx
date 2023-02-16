@@ -61,15 +61,24 @@ const Create = () => {
         className="flex flex-col items-center m-8"
       >
         <input
-          className="border py-2 px-3 text-grey-darkest m-1 focus:border-emerald-700 focus:outline-none rounded-md"
+          className="border py-2 px-3 text-grey-darkest m-1 focus:border-emerald-700 focus:outline-none rounded-md shadow-md w-8/12"
           placeholder="Recipe Name"
           type="text"
           name="name"
           value={recipe.name}
           onChange={handleChange}
         />
+        <textarea
+          className="border py-2 px-3 text-grey-darkest m-3 h-20 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
+          placeholder="Short Description"
+          rows="4"
+          type="text"
+          name="ingredients"
+          // value={recipe.value}
+          // onChange={handleChange}
+        />
         <input
-          className="border py-2 px-3 text-grey-darkest m-1 w-1/5 focus:border-emerald-700 focus:outline-none rounded-md"
+          className="border py-2 px-3 text-grey-darkest m-1 w-1/5 focus:border-emerald-700 focus:outline-none rounded-md shadow-md"
           placeholder="Time"
           type="text"
           name="time"
@@ -78,7 +87,7 @@ const Create = () => {
         />
         <div className="flex flex-row justify-center items-center m-1">
           <textarea
-            className="border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md"
+            className="border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
             placeholder="Ingredients"
             rows="4"
             type="text"
@@ -87,7 +96,7 @@ const Create = () => {
             onChange={handleChange}
           />
           <textarea
-            className="border py-2 px-3 text-grey-darkest m-3 h-28 focus:border-emerald-700 focus:outline-none resize-none rounded-md"
+            className="border py-2 px-3 text-grey-darkest m-3 h-28 focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
             placeholder="Directions"
             rows="4"
             type="text"
