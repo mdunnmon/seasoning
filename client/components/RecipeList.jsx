@@ -21,7 +21,7 @@ const RecipeList = () => {
   //renders an unordered list of recipes from our recipeList. for each recipe in array a new list item is created with a unique key
   //A recipe component is rendered passing in the recipe name, id, and all recipes array as properties
   return (
-    <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-neutral-50">
+    <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
       {recipes.map((recipe) => (
         <Recipe
           key={recipe._id}

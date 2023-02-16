@@ -10,6 +10,8 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <BrowserRouter>
-    <App />
+    <div className="font-sans">
+      <App />
+    </div>
   </BrowserRouter>
 );

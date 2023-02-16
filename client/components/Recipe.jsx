@@ -20,7 +20,7 @@ const Recipe = ({ name, id, recipes }) => {
         <Link
           to={`/recipe/${id}`}
           state={{ recipes }}
-          className="bg-gradient-to-r from-emerald-700 to-emerald-600 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-gray-800"
+          className="bg-gradient-to-r from-emerald-700 to-emerald-600 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
         >
           View Recipe
         </Link>

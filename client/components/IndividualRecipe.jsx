@@ -116,7 +116,12 @@ const IndividualRecipe = () => {
             onChange={(e) => setDirections(e.target.value)}
           />
         </h2>
-        <button onClick={editRecipe}>Save Changes</button>
+        <button
+          className="bg-gradient-to-r from-emerald-700 to-emerald-600 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
+          onClick={editRecipe}
+        >
+          Save Changes
+        </button>
       </div>
     );
   }
@@ -133,8 +138,16 @@ const IndividualRecipe = () => {
       <p>Time: {time}</p>
       <h2>Ingredients: {ingredients}</h2>
       <h2>Directions: {directions}</h2>
-      <button onClick={handleEditClick}>Edit Recipe</button>
-      <button className="deleteRecipe" onClick={deleteRecipe}>
+      <button
+        className="bg-gradient-to-r from-emerald-700 to-emerald-500 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white"
+        onClick={handleEditClick}
+      >
+        Edit Recipe
+      </button>
+      <button
+        className="bg-indigo-800 inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:bg-red-900"
+        onClick={deleteRecipe}
+      >
         Delete Recipe
       </button>
     </div>

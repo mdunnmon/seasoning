@@ -54,50 +54,54 @@ const Create = () => {
   };
 
   return (
-    <div>
-      <h1>Create here</h1>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Recipe Name:
-            <input
-              type="text"
-              name="name"
-              value={recipe.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Time:
-            <input
-              type="text"
-              name="time"
-              value={recipe.time}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Ingredients:
-            <input
-              type="text"
-              name="ingredients"
-              value={recipe.value}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Directions:
-            <input
-              type="text"
-              name="directions"
-              value={recipe.directions}
-              onChange={handleChange}
-            />
-          </label>
-          <button className="createRecipe" type="submit">
-            Add Recipe
-          </button>
+    <div className="flex flex-col justify-center items-center h-full bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center m-8"
+      >
+        <input
+          className="border py-2 px-3 text-grey-darkest m-1 focus:border-emerald-700 focus:outline-none rounded-md"
+          placeholder="Recipe Name"
+          type="text"
+          name="name"
+          value={recipe.name}
+          onChange={handleChange}
+        />
+        <input
+          className="border py-2 px-3 text-grey-darkest m-1 w-1/5 focus:border-emerald-700 focus:outline-none rounded-md"
+          placeholder="Time"
+          type="text"
+          name="time"
+          value={recipe.time}
+          onChange={handleChange}
+        />
+        <div className="flex flex-row justify-center items-center m-1">
+          <textarea
+            className="border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md"
+            placeholder="Ingredients"
+            rows="4"
+            type="text"
+            name="ingredients"
+            value={recipe.value}
+            onChange={handleChange}
+          />
+          <textarea
+            className="border py-2 px-3 text-grey-darkest m-3 h-28 focus:border-emerald-700 focus:outline-none resize-none rounded-md"
+            placeholder="Directions"
+            rows="4"
+            type="text"
+            name="directions"
+            value={recipe.directions}
+            onChange={handleChange}
+          />
         </div>
+        <button
+          className="bg-gradient-to-r from-emerald-700 to-emerald-600 inline-block px-6 py-2.5 text-gray-800 font-medium text-xs leading-tight uppercase rounded shadow-md hover:shadow-lg hover:text-white mt-4"
+          type="submit"
+        >
+          Add Recipe
+        </button>
       </form>
     </div>
   );

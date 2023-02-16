@@ -10,32 +10,32 @@ import { Link, Route, Routes } from 'react-router-dom';
 const App = () => {
   return (
     <>
-      <nav class="flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
-        <span class="font-semibold text-xl tracking-tight text-white">
+      <nav className="flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
+        <span className="font-semibold text-xl tracking-tight text-white">
           Seasoning
         </span>
         <ul className="flex items-center justify-between flex-shrink-0 mr-6">
           <li
             href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 mr-4 text-slate-200 hover:text-white"
+            className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-slate-200 hover:text-white"
           >
             <Link to="/">Home</Link>
           </li>
           <li
             href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
+            className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
           >
             <Link to="/create">Create</Link>
           </li>
           <li
             href="#responsive-header"
-            class="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
+            className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
           >
             <Link to="/recipe">Recipe List</Link>
           </li>
           <a
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            class="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0  text-slate-200 hover:text-white hover:bg-gradient-to-r from-emerald-700 to-emerald-600"
+            className="inline-block text-sm px-4 py-2 leading-none border rounded mt-4 lg:mt-0  text-slate-200 hover:text-white hover:bg-gradient-to-r from-emerald-700 to-emerald-600"
           >
             Log in
           </a>
