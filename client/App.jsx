@@ -11,7 +11,9 @@ const App = () => {
   return (
     <>
       <nav class="flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
-        <span class="font-semibold text-xl tracking-tight text-white">Seasoning</span>
+        <span class="font-semibold text-xl tracking-tight text-white">
+          Seasoning
+        </span>
         <ul className="flex items-center justify-between flex-shrink-0 mr-6">
           <li
             href="#responsive-header"
