@@ -1,6 +1,6 @@
 // import { getRecipes } from "../mockApi";
-import React, { useState, useEffect } from 'react';
-import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const IndividualRecipe = () => {
   //import navigate hook and use to redirect after a successful submit
@@ -18,6 +18,7 @@ const IndividualRecipe = () => {
   const [editable, setEditable] = useState(false);
   //set states for all avaiable inputs
   const [name, setName] = useState(recipe.name);
+  const [description, setDescription] = useState(recipe.description);
   const [time, setTime] = useState(recipe.time);
   const [ingredients, setIngredients] = useState(recipe.ingredients);
   const [directions, setDirections] = useState(recipe.directions);
@@ -33,7 +34,14 @@ const IndividualRecipe = () => {
   }
   //edit recipe function sending put request
   const editRecipe = () => {
-    const updatedRecipe = { ...recipe, name, time, ingredients, directions };
+    const updatedRecipe = {
+      ...recipe,
+      name,
+      description,
+      time,
+      ingredients,
+      directions,
+    };
     //makes a post request to /api/create endpoint with the content type headers, and the body of our stringified updated recipe information
     fetch('/api/edit', {
       method: 'PUT',
@@ -43,6 +51,7 @@ const IndividualRecipe = () => {
       body: JSON.stringify({
         _id: recipeId,
         name: updatedRecipe.name,
+        description: updatedRecipe.description,
         time: updatedRecipe.time,
         ingredients: updatedRecipe.ingredients,
         directions: updatedRecipe.directions,
@@ -112,6 +121,13 @@ const IndividualRecipe = () => {
               />
             </h3>
           </div>
+          <h2 className="text-center pt-4 font-medium">
+            <input
+              className=" text-center w-full bg-transparent border-b-2 border-gray-400 focus:outline-none focus:border-emerald-700"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </h2>
           <div className="m-8 p-4">
             <p className="p-3">
               Ingredients:{' '}
@@ -162,6 +178,7 @@ const IndividualRecipe = () => {
           <h1 className="text-xl font-bold">{name}</h1>
           <h3>{time}</h3>
         </div>
+        <h2 className="text-center pt-4 font-medium">{description}</h2>
         <div className="m-8 p-4">
           <h4 className="pl-3 font-semibold">Ingredients:</h4>
           <p className="pl-3 pb-3">{ingredients}</p>

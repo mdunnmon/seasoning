@@ -8,6 +8,7 @@ const Create = () => {
   //useState hook to set state to default, then update to our inputs from below with setRecipe
   const [recipe, setRecipe] = useState({
     name: '',
+    description: '',
     time: '',
     ingredients: '',
     directions: '',
@@ -73,9 +74,9 @@ const Create = () => {
           placeholder="Short Description"
           rows="4"
           type="text"
-          name="ingredients"
-          // value={recipe.value}
-          // onChange={handleChange}
+          name="description"
+          value={recipe.description}
+          onChange={handleChange}
         />
         <input
           className="border py-2 px-3 text-grey-darkest m-1 w-1/5 focus:border-emerald-700 focus:outline-none rounded-md shadow-md"

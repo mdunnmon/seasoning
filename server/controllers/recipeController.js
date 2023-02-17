@@ -17,6 +17,7 @@ recipeController.createRecipe = (req, res, next) => {
   //use the Recipe schema to create new recipe assigning values from our request body to our properties
   Recipe.create({
     name: req.body.name,
+    description: req.body.description,
     time: req.body.time,
     ingredients: req.body.ingredients,
     directions: req.body.directions,

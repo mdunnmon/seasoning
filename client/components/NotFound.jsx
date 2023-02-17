@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 const NotFound = () => {
   return (
-    <h1>NotFound</h1>
-  )
-}
+    <div className="flex flex-col justify-center items-center">
+      <img src="https://freefrontend.com/assets/img/html-css-404-page-templates/HTML-404-Page-with-SVG.png" />
+    </div>
+  );
+};
 
-export default NotFound
+export default NotFound;
