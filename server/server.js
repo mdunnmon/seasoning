@@ -45,18 +45,18 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 app.use((req, res) => res.status(404).send('This page does not exist'));
 
 // SSL certificate and private key
-const options = {
-  key: fs.readFileSync('/path/to/your/ssl/key'),
-  cert: fs.readFileSync('/path/to/your/ssl/certificate'),
-};
+// const options = {
+//   key: fs.readFileSync('/path/to/your/ssl/key'),
+//   cert: fs.readFileSync('/path/to/your/ssl/certificate'),
+// };
 
-https.createServer(options, app).listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
-});
-
-//Non https creation
-// app.listen(PORT, () => {
+// https.createServer(options, app).listen(PORT, () => {
 //   console.log(`Server listening on port: ${PORT}`);
 // });
+
+//Non https creation
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}`);
+});
 
 module.exports = app;
