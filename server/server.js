@@ -1,7 +1,10 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const https = require('https');
+const fs = require('fs');
 const app = express();
+require('dotenv').config();
 //import router
 const recipeRouter = require('./routes/recipeRouter.js');
 const PORT = 3000;
@@ -19,15 +22,11 @@ const database = (module.exports = () => {
   };
   //try to connect to database with the associated URI, and the connectionParams which we have declared
   try {
-    mongoose.connect(
-      'mongodb+srv://mdunnmon:seasoning789@recipestorage.n4vrfhq.mongodb.net/?retryWrites=true&w=majority',
-      connectionParams
-    );
+    mongoose.connect(process.env.MONGODB_URI, connectionParams);
     //log if connection is successful
     console.log('Successfully connected to database');
     //catch block if there is an error
   } catch (error) {
-    console.log(error);
     console.log('Failed to connect to database');
   }
 });
@@ -45,8 +44,19 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 //catch all route handler
 app.use((req, res) => res.status(404).send('This page does not exist'));
 
-app.listen(PORT, () => {
+// SSL certificate and private key
+const options = {
+  key: fs.readFileSync('/path/to/your/ssl/key'),
+  cert: fs.readFileSync('/path/to/your/ssl/certificate'),
+};
+
+https.createServer(options, app).listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
+
+//Non https creation
+// app.listen(PORT, () => {
+//   console.log(`Server listening on port: ${PORT}`);
+// });
 
 module.exports = app;

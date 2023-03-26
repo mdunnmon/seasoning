@@ -88,7 +88,7 @@ const Create = () => {
         />
         <div className="flex flex-row justify-center items-center m-1">
           <textarea
-            className="border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
+            className=" w-3/4 border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
             placeholder="Ingredients"
             rows="4"
             type="text"
