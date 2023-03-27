@@ -8,13 +8,14 @@ module.exports = {
   entry: './client/index.js',
 
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
-
+  mode: 'development',
   plugins: [
     new HTMLWebpackPlugin({
-      template: './client/index.html',
+      template: './index.html',
     }),
   ],
 
@@ -45,7 +46,15 @@ module.exports = {
 
   devServer: {
     headers: { 'Access-Control-Allow-Origin': '*' },
+    host: '0.0.0.0',
+    port: 8080,
     historyApiFallback: true,
+    static: {
+      // match the output path
+      directory: path.resolve(__dirname, 'dist'),
+      //match the output 'publicPath'
+      publicPath: '/',
+    },
     proxy: {
       '/api/**': {
         target: 'http://localhost:3000',
