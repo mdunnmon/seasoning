@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "dev": "concurrently \"webpack-dev-server --open --hot \" \"nodemon ./server/server.js\"",
-    "build": "webpack --mode production"
+    "build": "webpack --config ./webpack.config.js"
   },
   "keywords": [],
   "author": "",

@@ -36,10 +36,11 @@ database();
 //define route handlers. when routes use a /api then it gets sent to the recipeRouter
 app.use('/api', recipeRouter);
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'path', 'to', 'index.html'));
-// });
-app.use(express.static(path.resolve(__dirname, '../client')));
+// DEVELOPMENT //
+// app.use(express.static(path.resolve(__dirname, '../client')));
+
+// PRODUCTION //
+app.use(express.static(path.join(__dirname, '../dist/')));
 
 //catch all route handler
 app.use((req, res) => res.status(404).send('This page does not exist'));
