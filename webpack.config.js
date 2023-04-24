@@ -12,6 +12,9 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   mode: 'development',
   plugins: [
     new HTMLWebpackPlugin({
@@ -21,15 +24,27 @@ module.exports = {
 
   module: {
     rules: [
+      // {
+      //   test: /.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react'],
+      //     },
+      //   },
+      // },
       {
-        test: /.(js|jsx)$/,
+        test: /\.(t|j)sx?$/,
+        use: { loader: 'ts-loader' },
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+      },
+
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.css$/i,
@@ -37,11 +52,6 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
-
-    // resolve: {
-    //   // Enable importing JS / JSX files without specifying their extension
-    //   extensions: ['.js', '.jsx'],
-    // },
   },
 
   devServer: {
