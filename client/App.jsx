@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import Home from './components/Home.jsx';
 import Create from './components/Create.jsx';
-import RecipeList from './components/RecipeList.jsx';
+import RecipeList from './components/RecipeList';
 import IndividualRecipe from './components/IndividualRecipe.jsx';
 import NotFound from './components/NotFound.jsx';
 import { Link, Route, Routes } from 'react-router-dom';
