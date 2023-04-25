@@ -1,38 +1,34 @@
-// import { getRecipes } from "../mockApi";
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const IndividualRecipe = () => {
-  //import navigate hook and use to redirect after a successful submit
+const IndividualRecipe: React.FC = () => {
   const navigate = useNavigate();
-  //import useLocation hook to pass down from the Link in Recipe. state is assigned to recipe there and useLocation can access this object
   const location = useLocation();
-  // console.log(location);
   const recipeId = location.pathname.split('/').pop();
-  //pull the recipes from location.state
   const recipes = location.state.recipes;
-  //find individual recipe based upon Id given in pathway which corresponds to the object's key
   const recipe = recipes.find((recipe) => recipe._id === recipeId);
 
-  //create state for editable state when editing page. will flip between true/false if edit button clicked
   const [editable, setEditable] = useState(false);
-  //set states for all avaiable inputs
-  const [name, setName] = useState(recipe.name);
-  const [description, setDescription] = useState(recipe.description);
-  const [time, setTime] = useState(recipe.time);
-  const [ingredients, setIngredients] = useState(recipe.ingredients);
-  const [directions, setDirections] = useState(recipe.directions);
+  const [name, setName] = useState<string>(recipe?.name || '');
+  const [description, setDescription] = useState<string>(
+    recipe?.description || ''
+  );
+  const [time, setTime] = useState<string>(recipe?.time || '');
+  const [ingredients, setIngredients] = useState<string>(
+    recipe?.ingredients || ''
+  );
+  const [directions, setDirections] = useState<string>(
+    recipe?.directions || ''
+  );
 
-  //set event listener for clicking on our edit button and changing state to true
   const handleEditClick = () => {
     setEditable(true);
   };
 
-  //if no recipe data
   if (!recipe) {
     return <div>Loading recipe...</div>;
   }
-  //edit recipe function sending put request
   const editRecipe = () => {
     const updatedRecipe = {
       ...recipe,
@@ -42,7 +38,6 @@ const IndividualRecipe = () => {
       ingredients,
       directions,
     };
-    //makes a post request to /api/create endpoint with the content type headers, and the body of our stringified updated recipe information
     fetch('/api/edit', {
       method: 'PUT',
       headers: {
@@ -57,22 +52,15 @@ const IndividualRecipe = () => {
         directions: updatedRecipe.directions,
       }),
     })
-      //after fetch then take the response and parse the json body
       .then((res) => res.json())
-      //then take the json data and log a success
       .then((data) => {
-        // Redirect to the home page or show a success message to the user
         console.log('Recipe edited successfully:', data);
-        //alert showing recipe name has been added successfully
         alert(`Successfully edited ${name} in database!`);
-        //change back to non edit mode
         setEditable(false);
       })
-      //catch error if recipe does not upload correctly
       .catch((err) => console.error('Error editing recipe:', err));
   };
 
-  //delete recipe function sending delete request with the body of _id: and the current recipeId
   const deleteRecipe = () => {
     fetch('/api/delete', {
       method: 'DELETE',
@@ -81,26 +69,15 @@ const IndividualRecipe = () => {
       },
       body: JSON.stringify({ _id: recipeId }),
     })
-      //after fetch then take the response and parse the json body
       .then((res) => res.json())
-      //then take the json data and log a success
       .then((data) => {
-        // Redirect to the home page or show a success message to the user
         console.log('Recipe created successfully:', data);
-        //alert showing recipe name has been added successfully
         alert(`Successfully deleted ${name} from database!`);
-        //redirect
         navigate('/recipe');
       })
-      //catch error if recipe does not upload correctly
       .catch((err) => console.error('Error creating recipe:', err));
   };
 
-  /*if the state of editable is true then it will return the following rendering
-      changes each property to an input with a value set to the associated state from above
-      created an onChange where it will dynamically update the associated state to the current input
-      //added a save changed button which onClick will call upon the updateRecipe
-    */
   if (editable) {
     return (
       <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
@@ -164,12 +141,6 @@ const IndividualRecipe = () => {
       </div>
     );
   }
-  /*
-    if editable not true return general list of properties
-    displays the appropriate property from our recipe
-    have an onClick to invoke the handleEditClick function which changes the state
-    have a delete recipe button where on it invokes the deleteRecipe function
-    */
 
   return (
     <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">

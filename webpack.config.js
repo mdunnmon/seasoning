@@ -5,7 +5,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // Entry point of our app
-  entry: './client/index.js',
+  entry: './client/index.tsx',
 
   output: {
     path: path.resolve(__dirname, 'dist'),
