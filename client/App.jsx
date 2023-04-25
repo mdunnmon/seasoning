@@ -1,10 +1,10 @@
 import React from 'react';
 import './index.css';
-import Home from './components/Home.jsx';
-import Create from './components/Create.jsx';
+import Home from './components/Home';
+import Create from './components/Create';
 import RecipeList from './components/RecipeList';
 import IndividualRecipe from './components/IndividualRecipe.jsx';
-import NotFound from './components/NotFound.jsx';
+import NotFound from './components/NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
 
 const App = () => {

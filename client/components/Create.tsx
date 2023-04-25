@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RecipeType } from './types';
 
-const Create = () => {
+const Create: React.FC = () => {
   const navigate = useNavigate();
-  const [recipe, setRecipe] = useState({
+  const [recipe, setRecipe] = useState<RecipeType>({
+    _id: '',
     name: '',
     description: '',
     time: '',
@@ -11,7 +14,7 @@ const Create = () => {
     directions: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     fetch('/api/create', {
@@ -30,7 +33,9 @@ const Create = () => {
       .catch((err) => console.error('Error creating recipe:', err));
   };
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
     const { name, value } = e.target;
     setRecipe((prevRecipe) => ({
       ...prevRecipe,
@@ -56,8 +61,7 @@ const Create = () => {
         <textarea
           className="border py-2 px-3 text-grey-darkest m-3 h-20 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
           placeholder="Short Description"
-          rows="4"
-          type="text"
+          rows={Number('4')}
           name="description"
           value={recipe.description}
           onChange={handleChange}
@@ -74,17 +78,15 @@ const Create = () => {
           <textarea
             className=" w-3/4 border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
             placeholder="Ingredients"
-            rows="4"
-            type="text"
+            rows={Number('4')}
             name="ingredients"
-            value={recipe.value}
+            value={recipe.ingredients}
             onChange={handleChange}
           />
           <textarea
             className="border py-2 px-3 text-grey-darkest m-3 h-28 focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md"
             placeholder="Directions"
-            rows="4"
-            type="text"
+            rows={Number('4')}
             name="directions"
             value={recipe.directions}
             onChange={handleChange}

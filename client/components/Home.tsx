@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div className="relative px-6 lg:px-8 bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
