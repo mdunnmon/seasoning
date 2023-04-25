@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import './index.css';
-import Home from './components/Home.jsx';
-import Create from './components/Create.jsx';
+import Home from './components/Home';
+import Create from './components/Create';
 import RecipeList from './components/RecipeList';
-import IndividualRecipe from './components/IndividualRecipe.jsx';
-import NotFound from './components/NotFound.jsx';
+import IndividualRecipe from './components/IndividualRecipe';
+import NotFound from './components/NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <nav className="flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
@@ -15,22 +15,13 @@ const App = () => {
           Seasoning
         </span>
         <ul className="flex items-center justify-between flex-shrink-0 mr-6">
-          <li
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-slate-200 hover:text-white"
-          >
+          <li className="block mt-4 lg:inline-block lg:mt-0 mr-4 text-slate-200 hover:text-white">
             <Link to="/">Home</Link>
           </li>
-          <li
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
-          >
+          <li className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white">
             <Link to="/create">Create</Link>
           </li>
-          <li
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white"
-          >
+          <li className="block mt-4 lg:inline-block lg:mt-0 text-picton-blue-100 mr-4  text-slate-200 hover:text-white">
             <Link to="/recipe">Recipe List</Link>
           </li>
           <a
@@ -53,9 +44,3 @@ const App = () => {
 };
 
 export default App;
-
-/*main App component in react. has a navbar with an unordered list at the top with links to certain paths.
-used links to create hyperlinks to other routes in the app 
-utilized react router to create several route components with paths and elements set as components
-
-*/
