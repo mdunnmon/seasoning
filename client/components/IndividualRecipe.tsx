@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { RecipeType } from './types';
 
 const IndividualRecipe: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const recipeId = location.pathname.split('/').pop();
   const recipes = location.state.recipes;
-  const recipe = recipes.find((recipe) => recipe._id === recipeId);
+  const recipe = recipes.find((recipe: RecipeType) => recipe._id === recipeId);
 
   const [editable, setEditable] = useState(false);
   const [name, setName] = useState<string>(recipe?.name || '');
