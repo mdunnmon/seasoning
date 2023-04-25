@@ -53,9 +53,3 @@ const App = () => {
 };
 
 export default App;
-
-/*main App component in react. has a navbar with an unordered list at the top with links to certain paths.
-used links to create hyperlinks to other routes in the app 
-utilized react router to create several route components with paths and elements set as components
-
-*/

@@ -6,3 +6,10 @@ export interface RecipeType {
   ingredients: string;
   directions: string;
 }
+
+export interface RecipeProps {
+  name: string;
+  id: string;
+  recipes: RecipeType[];
+  description: string;
+}

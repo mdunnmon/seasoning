@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { RecipeType } from './types.js';
-import Recipe from './Recipe.jsx';
+import Recipe from './Recipe';
 
 const RecipeList: React.FC = () => {
   const [recipes, setRecipes] = useState<RecipeType[]>([]);

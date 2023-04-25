@@ -1,13 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { RecipeProps } from './types';
 
-const Recipe = ({ name, id, recipes, description }) => {
-  // console.log("key", id);
-  // console.log("name", name);
-  // console.log("recipe recipes", recipes)
-  console.log(description);
-
-  //can use link to pass down state via the useLocation hook. see individual
+const Recipe: React.FC<RecipeProps> = ({ name, id, recipes, description }) => {
   return (
     <div className="flex justify-center w-full md:w-1/3 p-4">
       <div className="w-80 h-60 block p-6 rounded-lg shadow-lg bg-white relative">
