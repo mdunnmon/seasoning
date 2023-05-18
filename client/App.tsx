@@ -7,21 +7,23 @@ import RecipeList from './components/RecipeList';
 import IndividualRecipe from './components/IndividualRecipe';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/recipe" element={<RecipeList />} />
-        <Route path="/recipe/:id" element={<IndividualRecipe />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/recipe" element={<RecipeList />} />
+          <Route path="/recipe/:id" element={<IndividualRecipe />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

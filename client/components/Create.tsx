@@ -74,14 +74,14 @@ const Create: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
+    <div className="flex items-center justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50 p-8">
       <form
         autoComplete="off"
         onSubmit={handleSubmit}
-        className="flex flex-col items-center m-8"
+        className="flex flex-col items-center w-full max-w-4xl mx-auto"
       >
         <input
-          className={`border py-2 px-3 text-grey-darkest m-1 focus:border-emerald-700 focus:outline-none rounded-md shadow-md w-8/12 ${
+          className={`border py-2 px-3 text-grey-darkest mb-4 w-full sm:w-1/4 sm:mb-2 focus:border-emerald-700 focus:outline-none rounded-md shadow-md ${
             (formErrors.name || (formSubmitted && recipe.name.trim() === '')) &&
             'border-red-500'
           }`}
@@ -92,20 +92,20 @@ const Create: React.FC = () => {
           onChange={handleChange}
         />
         <textarea
-          className={`border py-2 px-3 text-grey-darkest m-3 h-20 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
+          className={`border py-2 px-3 text-grey-darkest mb-4 w-full sm:w-1/2 sm:mb-2 focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
             (formErrors.description ||
               (formSubmitted && recipe.description.trim() === '')) &&
             'border-red-500'
           }`}
           placeholder="Short Description"
-          rows={Number('4')}
+          rows={Number('2')}
           name="description"
           value={recipe.description}
           onChange={handleChange}
         />
 
         <input
-          className={`border py-2 px-3 text-grey-darkest m-1 w-1/5 focus:border-emerald-700 focus:outline-none rounded-md shadow-md ${
+          className={`border py-2 px-3 text-grey-darkest mb-4 w-1/5 sm:w-1/8 sm:mb-2 focus:border-emerald-700 focus:outline-none rounded-md shadow-md ${
             (formErrors.time || (formSubmitted && recipe.time.trim() === '')) &&
             'border-red-500'
           }`}
@@ -116,9 +116,9 @@ const Create: React.FC = () => {
           onChange={handleChange}
         />
 
-        <div className="flex flex-row justify-center items-center m-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mx-auto mb-4">
           <textarea
-            className={`w-3/4 border py-2 px-3 text-grey-darkest m-3 h-28 text-top rows focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
+            className={`border py-2 px-3 text-grey-darkest h-36 sm:h-28 w-full focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
               (formErrors.ingredients ||
                 (formSubmitted && recipe.ingredients.trim() === '')) &&
               'border-red-500'
@@ -131,7 +131,7 @@ const Create: React.FC = () => {
           />
 
           <textarea
-            className={`border py-2 px-3 text-grey-darkest m-3 h-28 focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
+            className={`border py-2 px-3 text-grey-darkest h-36 sm:h-28 w-full focus:border-emerald-700 focus:outline-none resize-none rounded-md shadow-md ${
               (formErrors.directions ||
                 (formSubmitted && recipe.directions.trim() === '')) &&
               'border-red-500'

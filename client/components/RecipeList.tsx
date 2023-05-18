@@ -15,7 +15,7 @@ const RecipeList: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50">
+    <div className="flex flex-wrap justify-center bg-gradient-to-b from-neutral-200 via-neutral-100 to-white-50 p-6">
       {recipes.map((recipe) => (
         <Recipe
           key={recipe._id}
