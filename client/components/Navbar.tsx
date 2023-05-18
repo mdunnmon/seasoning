@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
+    <nav className="sticky top-0 z-50 flex items-center justify-between flex-wrap p-5 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 ">
       <span className="font-semibold text-xl tracking-tight text-white">
         Seasoning
       </span>

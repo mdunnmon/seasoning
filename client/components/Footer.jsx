@@ -74,12 +74,12 @@ export default function Footer() {
   const temp = unit === 'C' ? tempC : tempF;
 
   return (
-    <footer className="flex items-center justify-end absolute bottom-0 w-full h-20 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800">
-      <div className="ml-auto flex items-center space-x-2 mr-4 text-slate-200 text-lg">
+    <footer className="flex items-center justify-end w-full h-20 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 sticky bottom-0">
+      <div className="ml-auto flex items-center space-x-2 mr-12 text-slate-200 text-lg">
         <h1>
           {city}, {country}
         </h1>
-        <img src={icon} />
+        <img src={icon} alt="Weather Icon" />
         <button
           className="border rounded px-1 py-0.25 hover:text-white hover:bg-gradient-to-r from-emerald-700 to-emerald-600"
           onClick={handleClick}
