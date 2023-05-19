@@ -74,18 +74,42 @@ export default function Footer() {
   const temp = unit === 'C' ? tempC : tempF;
 
   return (
-    <footer className="flex items-center justify-end w-full h-20 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 sticky bottom-0">
-      <div className="ml-auto flex items-center space-x-2 mr-12 text-slate-200 text-lg">
+    <footer className="flex items-center justify-between w-full h-20 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 sticky bottom-0">
+      <div className="flex items-center ml-5 space-x-2 text-slate-200 text-lg">
         <h1>
           {city}, {country}
         </h1>
         <img src={icon} alt="Weather Icon" />
-        <button
-          className="border rounded px-1 py-0.25 hover:text-white hover:bg-gradient-to-r from-emerald-700 to-emerald-600"
-          onClick={handleClick}
-        >
+        <span className="mr-4 text-lg font-medium text-gray-900 dark:text-gray-300">
           {temp.toFixed(0)}° {unit}
-        </button>
+        </span>
+      </div>
+      <div className="flex items-center mr-12 space-x-2">
+        <label className="relative inline-flex items-center cursor-pointer">
+          <span className="mr-1 text-s font-medium text-gray-900 dark:text-gray-300">
+            C°
+          </span>
+          <div
+            className={`toggle-toggle w-12 h-6 relative rounded-full bg-gray-200 ${
+              unit === 'F' ? 'bg-emerald-600' : 'bg-gray-400'
+            }`}
+          >
+            <input
+              type="checkbox"
+              className="toggle-checkbox absolute w-0 h-0 opacity-0"
+              checked={unit === 'F'}
+              onChange={handleClick}
+            />
+            <div
+              className={`toggle-slider absolute w-6 h-6 rounded-full bg-white shadow transform transition-transform duration-200 ease-in ${
+                unit === 'F' ? 'translate-x-full' : 'translate-x-0'
+              }`}
+            ></div>
+          </div>
+          <span className="ml-1 text-s font-medium text-gray-900 dark:text-gray-300">
+            F°
+          </span>
+        </label>
       </div>
     </footer>
   );
