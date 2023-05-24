@@ -6,12 +6,15 @@ export default function Footer() {
     latitude: 'nowhere',
     longitude: 'nowhere',
   });
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [icon, setIcon] = useState('');
+
+  const [weather, setWeather] = useState({
+    city: '',
+    country: '',
+    tempC: 0,
+    icon: '',
+  });
   const [unit, setUnit] = useState('C');
-  const [tempC, setTempC] = useState(0);
-  const tempF = (tempC * 9) / 5 + 32;
+  const tempF = (weather.tempC * 9) / 5 + 32;
 
   useEffect(() => {
     fetchLocation();
@@ -58,10 +61,7 @@ export default function Footer() {
       const { temp } = main;
       const { icon } = weather[0];
 
-      setCity(name);
-      setCountry(country);
-      setTempC(temp);
-      setIcon(icon);
+      setWeather({ city: name, country, tempC: temp, icon });
     } catch (error) {
       console.error('Error fetching weather: ', error);
     }
@@ -71,15 +71,15 @@ export default function Footer() {
     setUnit(unit === 'C' ? 'F' : 'C');
   }
 
-  const temp = unit === 'C' ? tempC : tempF;
+  const temp = unit === 'C' ? weather.tempC : tempF;
 
   return (
     <footer className="flex items-center justify-between w-full h-20 bg-gradient-to-r from-emerald-700 via-yellow-400 to-indigo-800 sticky bottom-0">
       <div className="flex items-center ml-5 space-x-2 text-slate-200 text-lg">
         <h1>
-          {city}, {country}
+          {weather.city}, {weather.country}
         </h1>
-        <img src={icon} alt="Weather Icon" />
+        <img src={weather.icon} alt="Weather Icon" />
         <span className="mr-4 text-lg font-medium text-gray-900 dark:text-gray-300">
           {temp.toFixed(0)}° {unit}
         </span>
