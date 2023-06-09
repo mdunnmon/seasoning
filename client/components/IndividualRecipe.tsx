@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { RecipeType } from './types';
 
 const IndividualRecipe: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const recipeId = location.pathname.split('/').pop();
+  const { id } = useParams();
   const recipes = location.state.recipes;
-  const recipe = recipes.find((recipe: RecipeType) => recipe._id === recipeId);
+  const recipe = recipes.find((recipe: RecipeType) => recipe._id === id);
 
   const [editable, setEditable] = useState(false);
   const [name, setName] = useState<string>(recipe?.name || '');
@@ -45,7 +45,7 @@ const IndividualRecipe: React.FC = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        _id: recipeId,
+        _id: id,
         name: updatedRecipe.name,
         description: updatedRecipe.description,
         time: updatedRecipe.time,
@@ -68,7 +68,7 @@ const IndividualRecipe: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ _id: recipeId }),
+      body: JSON.stringify({ _id: id }),
     })
       .then((res) => res.json())
       .then((data) => {
