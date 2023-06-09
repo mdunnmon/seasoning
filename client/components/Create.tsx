@@ -31,6 +31,8 @@ const Create: React.FC = () => {
       .filter(([key, value]) => key !== '_id' && value.trim() === '')
       .map(([key]) => key);
 
+    console.log('empty fields', emptyFields);
+
     if (emptyFields.length > 0) {
       const errorMessage = `Please fill out the following fields: ${emptyFields.join(
         ', '
